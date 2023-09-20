@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diaporama Manuel</title>
+</head>
+
+<body>
+    <h1>Diaporama</h1>
+    <button type="button" id="btDebut">|<< </button>
+            <button type="button" id="btPrecedent"> << </button>
+                    <button type="button" id="btPlay">PLAY</button>
+                    <button type="button" id="btSuivant">>></button>
+                    <button type="button" id="btFin">>>|</button>
+                    <br>
+                    <br>
+                    <img src="../images/0.jpg" alt="image de ouf" width="250" id="photo">
+                    
+                    <script>
+                        function init(anImages) {
+                            for (let i = 0; i < anImages; i++) {
+                                tImages[i] = new Image()
+                                tImages[i].src = "../images/" + i + ".png"
+                                tImages[i].alt = "" + i
+                            }
+                            i = 0
+
+                            btDebut.disabled = true
+                            btPrecedent.disabled = true
+
+                            btSuivant.addEventListener("click", suivant)
+                            btPrecedent.addEventListener("click", precedent)
+                            btFin.addEventListener("click", fin)
+                            btDebut.addEventListener("click", debut)
+                            document.getElementById("btPlay").addEventListener("click", play)
+                        }
+
+
+                        function debut() {
+                            i = 0
+                            photo.src = tImages[i].src
+                            photo.alt = "Image : " + i + ".png"
+                            testBt()
+                        }
+
+                        function precedent() {
+                            i--
+                            photo.src = tImages[i].src
+                            photo.alt = "Image : " + i + ".png"
+                            testBt()
+                        }
+
+                        function play() {
+
+
+                        }
+
+                        function suivant() {
+                            i++
+                            photo.src = tImages[i].src
+                            photo.alt = "Image : " + i + ".png"
+                            testBt()
+                        }
+
+
+                        function fin() {
+                            i = (tImages.length - 1)
+                            photo.src = tImages[i].src
+                            photo.alt = "Image : " + i + ".png"
+                            testBt()
+                        }
+
+
+                        function testBt() {
+                            if (i != 0) {
+                                btPrecedent.disabled = false
+                                btDebut.disabled = false
+                            }
+
+                            if (i == 0) {
+                                btPrecedent.disabled = true
+                                btDebut.disabled = true
+                            }
+
+                            if (i == tImages.length - 1) {
+                                btSuivant.disabled = true
+                                btFin.disabled = true
+                            }
+
+                            if (i != tImages.length - 1) {
+                                btSuivant.disabled = false
+                                btFin.disabled = false
+                            }
+                        }
+
+                        // MAIN
+
+                        var i
+                        var tImages = new Array()
+                        var photo = document.getElementById("photo")
+                        var btDebut = document.getElementById("btDebut")
+                        var btPrecedent = document.getElementById("btPrecedent")
+                        var btSuivant = document.getElementById("btSuivant")
+                        var btFin = document.getElementById("btFin")
+                        window.onload = init(5)
+                    </script>
+</body>
+
+</html>

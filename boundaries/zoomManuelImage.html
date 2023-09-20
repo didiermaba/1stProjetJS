@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ZoomManuelImage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="../icones/favicon.png">
+    </head>
+
+    <body>
+        <div>
+            <select id="lbZoom">
+                <option value="0.5">50%</option>
+                <option value="0.75">75%</option>
+                <option value="1" selected="selected">100%</option>
+                <option value="1.5">150%</option>
+                <option value="2">200%</option>
+                <option value="3">300%</option>
+                <option value="4">400%</option>
+                <option value="5">500%</option>
+            </select>
+            <label for="lbZoomPerso">Zoom personnalisé</label>
+            <input type="text" id="ZoomPerso">
+            <input type="button"
+            <br/><br />
+            <img id="photo" src="../images/1.png" width="100" alt="Image" />
+        </div>
+
+        <script>
+            function zoomer() {
+                // Calcule la nouvelle largeur
+                let liLargeur = giLargeurOrigine * document.getElementById("lbZoom").value
+                // Modifie la taille de l’image
+                // Équivalent à setAttribute(attribut, valeur)
+                document.getElementById("photo").width = liLargeur
+            }
+
+            /*
+             * MAIN
+             */
+            // Pour stocker la taille d’origine
+            var giLargeurOrigine = document.getElementById("photo").width
+            document.getElementById("lbZoom").onchange = zoomer
+        </script>
+    </body>
+</html>

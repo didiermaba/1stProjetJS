@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DateEtHeureEnTempsReel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="../icones/favicon.png">
+    </head>
+    <body>
+        <div>
+            <label id="lblHorloge"></label>
+        </div>
+        <script>
+            function afficherHorloge() {
+                // Récupère la date système
+                let maintenant = new Date()
+                // Récupère l’heure d’une date ...
+                let heures = maintenant.getHours()
+                let minutes = maintenant.getMinutes()
+                let secondes = maintenant.getSeconds()
+                // « Écrit » dans le <label> ...
+                document.getElementById("lblHorloge").innerHTML = "Il est " + heures + ":" + minutes + ":" + secondes
+            }
+
+            /*
+             * MAIN
+             */
+            afficherHorloge()
+            window.setInterval(afficherHorloge, 1000)
+
+        </script>
+    </body>
+</html>
+
+
+

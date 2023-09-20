@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html> 
+   
+
+<head> 
+           
+    <meta charset="UTF-8"> 
+            <title>js_regexp_1.html</title> 
+           
+    <script>
+        // ----------
+        function init() {
+            const cp = document.getElementById("it_cp")
+            const tel = document.getElementById("it_tel")
+            const email = document.getElementById("it_email")
+            const msg = document.getElementById("sp_msg")                 cp.onblur = () => {
+                //msg.innerHTML = isCP(cp.value) 
+                let r = isCP(cp.value)
+                if (r) {
+                    msg.innerHTML = "CP 0K"
+                } else {
+                    msg.innerHTML = "CP KO"
+                }
+            }                 tel.onblur = validerTel
+            //                tel.onblur = () => {
+            //                    msg.innerHTML = isTel(tel.value)
+            //                }
+            email.onblur = function () {
+                msg.innerHTML = isEmail(email.value)
+            }
+        }
+        // ---------- 
+        function isCP(cp) {
+            const er = new RegExp("^\\d{5}$")
+            return er.test(cp)
+        }
+        // ----------- 
+        function isTel(tel) {
+            const er = new RegExp("^([0-9]{2}[-]){4}[0-9]{2}$")
+            return er.test(tel)
+        }
+        // ------------- 
+        function isEmail(email) {
+            const er = new RegExp("^[0-9a-z._-]+@[0-9a-z._-]{2,}[.][a-z]{2,5}$", "i")
+            return er.test(email)
+        } function validerTel() {
+            const tel = document.getElementById("it_tel")
+            let r = isTel(tel.value)
+            if (r) {
+                document.getElementById("sp_msg").innerHTML = "Tél 0K"
+            } else {
+                document.getElementById("sp_msg").innerHTML = "Tél KO"
+            }
+        }
+    </script> 
+       
+</head> 
+   
+
+<body> 
+            CP <input id="it_cp" type="text" value="75012" /> 
+            Tél <input id="it_tel" type="text" value="08-12-13-14-15" /> 
+            E-Mail <input id="it_email" type="text" value="p.b@free.fr" /> 
+            <span id="sp_msg"></span>        
+    <script>
+        window.onload = init
+    </script> 
+       
+</body> 
+
+</html>

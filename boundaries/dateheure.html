@@ -1,0 +1,72 @@
+<!DOCTYPE html><!--
+    DateEtHeureActuelle.html
+    -->
+<html>
+
+<head>
+    <title>DateEtHeureActuelle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div>
+        <h1>DateEtHeureActuelle</h1>
+         <p id="dateEtHeure"></p>
+        <hr>
+        <p id="dateEtHeureTempsReel"></p>
+    </div>
+    <script>
+        /**
+         * 
+         * @type Number
+         */
+        function addZeroComplement(valeur) {
+            if (valeur < 10) {
+                valeur = "0" + valeur
+            }
+            return valeur
+        }
+        /**
+         * 
+         * @returns {String}
+         */
+        function getDateEtHeureActuelle() {
+            const d = new Date()
+            let quantieme = addZeroComplement(d.getDate())
+            let mois = addZeroComplement(d.getMonth() + 1)
+            let annee = d.getFullYear()
+            let heures = addZeroComplement(d.getHours())
+            let minutes = addZeroComplement(d.getMinutes())
+             let dh = "Aujourd'hui nous sommes le " + quantieme + "/" + mois + "/" + annee + " et il est " + heures + ":" + minutes
+            return dh
+        } function getDateEtHeureActuelle() {
+            const d = new Date()
+            let quantieme = addZeroComplement(d.getDate())
+            let mois = addZeroComplement(d.getMonth() + 1)
+            let annee = d.getFullYear()
+            let heures = addZeroComplement(d.getHours())
+            let minutes = addZeroComplement(d.getMinutes())
+            let dh = "Aujourd'hui nous sommes le " + quantieme + "/" + mois + "/" + annee + " et il est " + heures + ":" + minutes
+            return dh
+        }
+        function getDateEtHeureTempsReel() {
+            const tMois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre")
+            const tJours = new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi")
+            const d = new Date()
+            let quantieme = d.getDate()
+            let jour = d.getDay()
+            let mois = d.getMonth()
+            let annee = d.getFullYear()
+            let heures = d.getHours()
+            let minutes = d.getMinutes()
+            let secondes = d.getSeconds() 
+            let dh = "Aujourd'hui nous sommes le " + tJours[jour] + " " + quantieme + " " + tMois[mois] + " " + annee + " et il est " + heures + " heures " + minutes + " minutes et " + secondes + " secondes"
+            document.getElementById("dateEtHeureTempsReel").innerHTML = dh
+        } /*
+                 * MAIN
+                 * document.getElementById("dateEtHeure").innerHTML = getDateEtHeureActuelle() getDateEtHeureTempsReel()
+        setInterval(getDateEtHeureTempsReel, 1000)         
+        </script><!-- comment -->
+</body>
+</html>

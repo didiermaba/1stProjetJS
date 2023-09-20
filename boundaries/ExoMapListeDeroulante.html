@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mapExerciceListeDeroulanteCreateElement</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h3>mapExerciceListeDeroulanteCreateElement</h3>
+        <p><strong>Ouvrez la console (F12)</strong></p>
+        <div>
+            <select id="villes" name="villes">
+            </select>
+        </div>
+
+        <script>
+            /**
+             * 
+             * @param {type} item
+             * @returns {String}
+             */
+            function getOption(item) {
+                //return `<option value='${item}'>${item}</option>`
+                let option = document.createElement("option")
+                option.value = item
+                option.innerHTML = item
+                console.log(option)
+                return option
+            }
+
+            const arrayIN = ["Paris", "Lyon", "Marseille"]
+            // CALL getOption()
+            const arrayOUT = arrayIN.map(getOption)
+            // Avec une fonction anonyme
+//            const arrayOUT = arrayIN.map(item => {
+//                let option = document.createElement("option")
+//                option.value = item
+//                option.innerHTML = item
+//                console.log(option)
+//                return option
+//                //return `<option value='${item}'>${item}</option>`
+//            })
+            console.log(arrayOUT)
+            for (let i = 0; i < arrayOUT.length; i++) {
+                document.getElementById("villes").appendChild(arrayOUT[i])
+            }
+            //document.getElementById("villes").innerHTML = arrayOUT
+        </script>
+    </body>
+</html>

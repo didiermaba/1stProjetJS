@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Inscription.html
+-->
+<html>
+
+    <head>
+        <title>Inscription</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="../css/main.css" media='screen'>
+        <link rel="icon" type="image/ico" href="../icones/favicon.ico">
+    </head>
+
+    <body>
+        <section id="centre">
+            <h1>Inscription</h1>
+            <p>
+                <label for="pseudo" class="etiquette">Pseudo </label>
+                <input type="text" size="50" name="pseudo" id="pseudo" value="" class="saisie" />
+                <label class="texteRouge">*</label>
+                <label id="lblMessagePseudo"></label>
+            </p>
+            <p>
+                <label for="mdp" class="etiquette">Mot de passe</label>
+                <input type="password" size="50" name="mdp" id="mdp" value="" />
+                <label class="texteRouge">*</label>
+                <label id="lblMessageMdp"></label>
+                <input type="checkbox" id="checkBoxPasswordVisible" />
+                <label for="checkBoxPasswordVisible" id="lblAfficherLeMotDePasse">Afficher le mot de passe</label>
+            </p>
+
+            <p>
+                <label for="email1" class="etiquette">E-mail </label>
+                <input type="email" size="50" name="email1" id="email1" value="" />
+                <label class="texteRouge">*</label>
+                <label id="lblMessageEmail1"></label>
+            </p>
+            <p>
+                <label for="email2" class="etiquette">Retapez l'e-mail </label>
+                <input type="email" size="50" name="email" id="email2" value="" />
+                <label class="texteRouge">*</label>
+                <label id="lblMessageEmail2"></label>
+            </p>
+
+            <p>
+                <label for="villes" class="etiquette">Ville</label>
+                <select name="villes" id="villes" title="villes">
+                </select>
+                <label class="texteRouge">*</label>
+            </p>
+
+            <p>
+                <label class="etiquette">Date de naissance</label>
+                <select id="jours" name="jours" title="le choix du jour"></select>
+                <select id="mois" name="mois" title="mois"></select>
+                <select id="annees" name="annees" title="la sélection de l'année"></select>
+            </p>
+            <p>
+                <button type="button" name='btValider' id="btValider">
+                    Valider
+                </button>
+            </p>
+
+            <label id="lblMessage" class="texteOrange">Message</label>
+        </section>
+        <script src="../js/inscriptionFonctionsDOM.js"></script>
+    </body>
+
+</html>

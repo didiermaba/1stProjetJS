@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+</head>
+
+<body>
+    <h1>Inscription</h1>
+    <form action="../php/controllers/inscriptionCTRL.php" method="POST">
+        <label for="Pseudo" id="lblPseudo">Pseudo :</label>
+        <br>
+        <input type="text" name="pseudo" id="pseudo" value="">
+        <br>
+        <label for="Password" id="lblPassword">Mot de passe :</label>
+        <br>
+        <input type="password" name="password" id="password">
+        <label id="lblCheckbox">Afficher le mot de passe</label>
+        <input type="checkbox" id="passCheckbox" name="passCheckbox">
+        <br>
+        <label for="Email" id="lblemail">Email :</label>
+        <br>
+        <input type="text" name="email" id="email">
+        <br>
+        <label for="EmailBis" id="lblEmailBis">Ressaisissez votre Email :</label>
+        <br>
+        <input type="text" name="emailBis" id="emailBis">
+        <br>
+        <label for="Ville" id="lblVilles">Ville :</label>
+        <br>
+        <select name="villes" id="villes">
+        </select>
+        <br>
+        <label for="dateDeNaissance" id="lblDateDeNaissance">Date de naissance :</label>
+        <br>
+        <select name="jours" id="jours">
+        </select>
+        <select name="mois" id="mois">
+        </select>
+        <select name="annees" id="annees">
+        </select>
+        <br>
+        <input type="button" value="Valider" name="valider" id="valider"><br>
+        <p id="message"></p>
+    </form>
+
+
+    <script src="../js/inscription.js"></script>
+</body>
+
+</html>

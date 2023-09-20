@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ZoomAutoImage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="../icones/favicon.png">
+    </head>
+
+    <body>
+        <div>
+            <img id="photo" src="../images/0.png" width="100" alt="Pas d'image" />
+        </div>
+        <script>
+            function zoomer() {
+                nLargeur += nPas // Augmentation ou diminution de la largeur
+                // Test de taille pour modifier le sens du pas
+                if (nLargeur > 300) {
+                    nPas = -1
+                }
+                if (nLargeur < 100) {
+                    nPas = 1
+                }
+                document.getElementById('photo').width = nLargeur
+            }
+
+            /*
+             * MAIN
+             */
+            var nLargeur = 100, nPas = 1 // Largeur et pas
+            //window.onload = setInterval(zoomer, 1000)
+            window.setInterval(zoomer, 10) // Alternative
+        </script>
+
+    </body>
+</html>
+

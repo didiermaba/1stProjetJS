@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Multiple</title>
+</head>
+
+<body>
+    <h3>Sélection Multiple</h3>
+
+    <select id="multiple" multiple>
+        <option name="selectLanguage">Java </option>
+        <option name="selectLanguage">Javascript</option>
+        <option name="selectLanguage">PHP</option>
+        <option name="selectLanguage">ASP</option>
+    </select><br>
+    <button id="btSelection">Sélection(s)</button><br>
+    <label id="lbSelect"></label>
+    <script>
+
+        function init() {
+            document.getElementById("btSelection").onclick = multipleSelection
+
+        }
+
+        function multipleSelection() {
+            document.getElementById('lbSelect').innerHTML = "" // innerHTML:proprieté de l'objet(lbSelect)
+            let select = document.getElementsByName("selectLanguage");
+            for (let i = 0; i < select.length; i++) { if (select[i].selected) { 
+            document.getElementById('lbSelect').innerHTML += select[i].value + ", " } }
+        } 
+        
+ 
+    window.onload = init
+        
+    </script>
+</body>
+
+</html>

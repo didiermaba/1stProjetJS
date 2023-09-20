@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DiapoAutoImage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="../icones/favicon.png">
+    </head>
+    <body>
+        <div>
+            <img id="photo" src="../images/0.png" alt="Image" width="500" />
+        </div>
+
+        <script>
+            /**
+             *
+             * @param {type} anImages
+             * @returns {undefined}
+             */
+            function init(anImages) {
+                for (i = 0; i < anImages; i++) {
+                    tImages[i] = new Image()
+                    tImages[i].src = "../images/" + i + ".png"
+                }
+                i = 0
+                window.setInterval(changerImage, 2000)
+            } /// init
+            /**
+             *
+             * @returns {undefined}
+             */
+            function changerImage() {
+                photo.src = tImages[i].src
+                photo.alt = "Image : " + i + ".png"
+                i++
+                if (i === tImages.length) {
+                    i = 0
+                }
+            } /// changerImage
+            /*
+             * MAIN
+             */
+            var i
+            var tImages = new Array()
+            var photo = document.getElementById("photo")
+            window.onload = init(4)
+            changerImage()
+        </script>
+    </body>
+</html>
